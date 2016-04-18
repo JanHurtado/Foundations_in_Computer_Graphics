@@ -379,9 +379,15 @@ public:
    	{
    		vector<CornerType> res;
    		CornerType c = 3*triangle;
-   		res.push_back(cornerOpposite(c)/3);
-   		res.push_back(cornerOpposite(cornerPrevious(c))/3);
-   		res.push_back(cornerOpposite(cornerNext(c))/3);
+   		if(cornerOpposite(c)/3!=-1)
+   			res.push_back(cornerOpposite(c)/3);
+   		else res.push_back(0); //random triangle;
+   		if(cornerOpposite(cornerPrevious(c))!=-1)
+   			res.push_back(cornerOpposite(cornerPrevious(c))/3);
+   		else res.push_back(0); //random triangle;
+   		if(cornerOpposite(cornerNext(c))!=-1)
+   			res.push_back(cornerOpposite(cornerNext(c))/3);
+   		else res.push_back(0); //random triangle
    		return res;
    	}
    	
